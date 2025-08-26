@@ -5,6 +5,54 @@ const path = require("path");
 
 const app = express();
 const PORT = 3001;
+
+const multer = require("multer");
+
+// Multer konfiguration for fil uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    let uploadPath;
+    if (file.fieldname === 'cover') {
+      uploadPath = path.join(__dirname, 'covers');
+    } else if (file.fieldname === 'song') {
+      uploadPath = path.join(__dirname, 'songs');
+    }
+
+    // Opret mappe hvis den ikke findes
+    if (!fs.existsSync(uploadPath)) {
+      fs.mkdirSync(uploadPath, { recursive: true });
+    }
+    cb(null, uploadPath);
+  },
+  filename: function (req, file, cb) {
+    // Generer unikt filnavn
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const ext = path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + uniqueSuffix + ext);
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  fileFilter: function (req, file, cb) {
+    if (file.fieldname === 'cover') {
+      if (file.mimetype.startsWith('image/')) {
+        cb(null, true);
+      } else {
+        cb(new Error('Kun billedfiler er tilladt for covers'), false);
+      }
+    } else if (file.fieldname === 'song') {
+      if (file.mimetype.startsWith('audio/')) {
+        cb(null, true);
+      } else {
+        cb(new Error('Kun lydfiler er tilladt for sange'), false);
+      }
+    } else {
+      cb(null, true);
+    }
+  }
+});
+
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 
@@ -139,6 +187,79 @@ app.get("/api/songs", (req, res) => {
     res.status(500).json({
       success: false,
       message: "Fejl ved læsning af sange: " + error.message
+    });
+  }
+});/**
+ * @swagger
+ * /api/songs:
+ *   post:
+ *     summary: Opret en ny sang
+ *     description: Opretter en ny sang med cover og lydfil
+ *     tags: [Songs]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title: { type: string, description: "Sangens titel" }
+ *               artist: { type: string, description: "Kunstneren der har lavet sangen" }
+ *               cover: { type: string, format: binary, description: "Cover billede" }
+ *               song: { type: string, format: binary, description: "Lydfil" }
+ *     responses:
+ *       201:
+ *         description: Sang oprettet succesfuldt
+ */
+app.post("/api/songs", upload.fields([
+  { name: 'cover', maxCount: 1 },
+  { name: 'song', maxCount: 1 }
+]), (req, res) => {
+  try {
+    const { title, artist } = req.body;
+
+    if (!title || !artist) {
+      return res.status(400).json({
+        success: false,
+        message: "Titel og kunstner er påkrævet"
+      });
+    }
+
+    if (!req.files || !req.files.cover || !req.files.song) {
+      return res.status(400).json({
+        success: false,
+        message: "Både cover og lydfil er påkrævet"
+      });
+    }
+
+    const songs = loadSongsFromFile();
+    const newId = songs.length > 0 ? Math.max(...songs.map(s => s.id)) + 1 : 1;
+    const now = new Date().toISOString();
+
+    const newSong = {
+      id: newId,
+      title: title,
+      artist: artist,
+      coverPath: `/covers/${req.files.cover[0].filename}`,
+      songPath: `/songs/${req.files.song[0].filename}`,
+      createdAt: now,
+      updatedAt: now
+    };
+
+    songs.push(newSong);
+
+    // Gem til fil
+    const songsPath = path.join(__dirname, "data", "songs.json");
+    fs.writeFileSync(songsPath, JSON.stringify(songs, null, 2));
+
+    res.status(201).json({
+      success: true,
+      song: newSong
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Fejl ved oprettelse af sang: " + error.message
     });
   }
 });
