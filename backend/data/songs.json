@@ -14,4 +14,12 @@
         "coverPath": "/covers/Stolt - Annika.jpg",
         "songPath": "/songs/Stolt - Annika.mp3"
     }
+,    
+    {
+        "id": 1,
+        "title": "Strapped",
+        "artist": "Fool",
+        "coverPath": "/covers/Strapped - Fool.jpg",
+        "songPath": "/songs/Strapped - Fool.mp3"
+    }
 ]
