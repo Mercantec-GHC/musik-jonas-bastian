@@ -1,1 +1,9 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "Clima Lindo",
+        "artist": "GXMZ",
+        "coverPath": "/covers/Clima Lindo.jpg",
+        "songPath": "/songs/Clima Lindo.mp3"
+    }
+]
