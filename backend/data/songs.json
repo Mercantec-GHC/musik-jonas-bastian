@@ -1,25 +1,50 @@
 [
-    {
-        "id": 1,
-        "title": "Clima Lindo",
-        "artist": "GXMZ",
-        "coverPath": "/covers/Clima Lindo.jpg",
-        "songPath": "/songs/Clima Lindo.mp3"
-    }
-,
-    {
-        "id": 1,
-        "title": "Stolt",
-        "artist": "Annika",
-        "coverPath": "/covers/Stolt - Annika.jpg",
-        "songPath": "/songs/Stolt - Annika.mp3"
-    }
-,    
-    {
-        "id": 1,
-        "title": "Strapped",
-        "artist": "Fool",
-        "coverPath": "/covers/Strapped - Fool.jpg",
-        "songPath": "/songs/Strapped - Fool.mp3"
-    }
+  {
+    "id": 1,
+    "title": "Clima Lindo",
+    "artist": "GXMZ",
+    "coverPath": "/covers/Clima Lindo.jpg",
+    "songPath": "/songs/Clima Lindo.mp3"
+  },
+  {
+    "id": 1,
+    "title": "Stolt",
+    "artist": "Annika",
+    "coverPath": "/covers/Stolt - Annika.jpg",
+    "songPath": "/songs/Stolt - Annika.mp3"
+  },
+  {
+    "id": 1,
+    "title": "Strapped",
+    "artist": "Fool",
+    "coverPath": "/covers/Strapped - Fool.jpg",
+    "songPath": "/songs/Strapped - Fool.mp3"
+  },
+  {
+    "id": 2,
+    "title": "Whatever it Takes",
+    "artist": "Imagine Dragons",
+    "coverPath": "/covers/cover-1756729045257-800508027.jpg",
+    "songPath": "/songs/song-1756729045123-347362200.mp3",
+    "createdAt": "2025-09-01T12:17:25.259Z",
+    "updatedAt": "2025-09-01T12:17:25.259Z"
+  },
+  {
+    "id": 3,
+    "title": "NBSPLV",
+    "artist": "The Lost Souls Down",
+    "coverPath": "/covers/cover-1756729668598-232625883.jpg",
+    "songPath": "/songs/song-1756729668574-228927996.mp3",
+    "createdAt": "2025-09-01T12:27:48.601Z",
+    "updatedAt": "2025-09-01T12:27:48.601Z"
+  },
+  {
+    "id": 4,
+    "title": "Memory Reboot",
+    "artist": "VØJ",
+    "coverPath": "/covers/cover-1756729880313-163939018.jpg",
+    "songPath": "/songs/song-1756729880270-870180114.mp3",
+    "createdAt": "2025-09-01T12:31:20.318Z",
+    "updatedAt": "2025-09-01T12:31:20.318Z"
+  }
 ]

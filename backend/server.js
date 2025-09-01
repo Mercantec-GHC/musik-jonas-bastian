@@ -102,6 +102,11 @@ const specs = swaggerJsdoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 app.use(cors());
 app.use(express.json());
+
+// Servér statiske filer (covers og sange)
+app.use('/covers', express.static(path.join(__dirname, 'covers')));
+app.use('/songs', express.static(path.join(__dirname, 'songs')));
+
 // Hjælpefunktioner
 function loadSongsFromFile() {
   const songsPath = path.join(__dirname, "data", "songs.json");
