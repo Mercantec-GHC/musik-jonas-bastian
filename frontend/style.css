@@ -383,7 +383,6 @@ main {
 }
 #open-upload-modal {
   background: #003cff;
-  background: ;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -401,7 +400,6 @@ main {
 }
 #open-upload-modal:hover {
   background: #ff9100;
-  background: ;
   box-shadow: 0 4px 16px #0007;
   transform: scale(1.04);
 }
