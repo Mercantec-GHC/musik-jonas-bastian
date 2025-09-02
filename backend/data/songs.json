@@ -46,5 +46,14 @@
     "songPath": "/songs/song-1756729880270-870180114.mp3",
     "createdAt": "2025-09-01T12:31:20.318Z",
     "updatedAt": "2025-09-01T12:31:20.318Z"
+  },
+  {
+    "id": 5,
+    "title": "Goth (Slowed Reverb)",
+    "artist": "Sidewalks and Skeletons",
+    "coverPath": "/covers/cover-1756811875915-227475114.jpg",
+    "songPath": "/songs/song-1756811875699-907596757.mp3",
+    "createdAt": "2025-09-02T11:17:55.919Z",
+    "updatedAt": "2025-09-02T11:17:55.919Z"
   }
 ]
