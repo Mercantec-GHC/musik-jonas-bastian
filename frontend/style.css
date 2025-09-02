@@ -274,12 +274,12 @@ main {
   text-shadow: 0 1px 2px #000a;
 }
 #play-pause {
-  background: #1db954;
+  background: #003cff;
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   font-size: 1.2rem;
   cursor: pointer;
   transition: background 0.2s, box-shadow 0.2s;
@@ -289,7 +289,7 @@ main {
   box-shadow: 0 2px 8px #0005;
 }
 #play-pause:hover {
-  background: #1ed760;
+  background: #cc7400;
   box-shadow: 0 4px 16px #0007;
 }
 #play-icon,
@@ -299,9 +299,9 @@ main {
 #seek-bar {
   flex: 2;
   margin: 0 1rem;
-  accent-color: #1db954;
+  accent-color: #003cff;
   height: 4px;
-  background: linear-gradient(90deg, #1db954 0%, #1ed760 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #1ed760 100%);
   border-radius: 2px;
 }
 #current-time,
@@ -309,7 +309,7 @@ main {
   min-width: 48px;
   text-align: center;
   font-variant-numeric: tabular-nums;
-  color: #b3b3b3;
+  color: #ffffff;
 }
 @media (max-width: 700px) {
   main {
@@ -367,7 +367,7 @@ main {
   font-size: 1rem;
 }
 #upload-form button[type="submit"] {
-  background: #1db954;
+  background: #003cff;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -379,10 +379,11 @@ main {
   transition: background 0.2s;
 }
 #upload-form button[type="submit"]:hover {
-  background: #1ed760;
+  background: #ff9100;
 }
 #open-upload-modal {
-  background: #1db954;
+  background: #003cff;
+  background: ;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -399,7 +400,8 @@ main {
   gap: 0.5rem;
 }
 #open-upload-modal:hover {
-  background: #1ed760;
+  background: #ff9100;
+  background: ;
   box-shadow: 0 4px 16px #0007;
   transform: scale(1.04);
 }
